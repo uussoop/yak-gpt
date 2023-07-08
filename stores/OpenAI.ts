@@ -28,7 +28,7 @@ async function fetchFromAPI(endpoint: string, key: string) {
 
 export async function testKey(key: string): Promise<boolean> {
   try {
-    const res = await fetchFromAPI("http://127.0.0.1:3030/v1/models", key);
+    const res = await fetchFromAPI("http://23.88.9.238:3030/v1/models", key);
     return res.status === 200;
   } catch (e) {
     if (axios.isAxiosError(e)) {
@@ -42,7 +42,7 @@ export async function testKey(key: string): Promise<boolean> {
 
 export async function fetchModels(key: string): Promise<string[]> {
   try {
-    const res = await fetchFromAPI("http://127.0.0.1:3030/v1/models", key);
+    const res = await fetchFromAPI("http://23.88.9.238:3030/v1/models", key);
     return res.data.data.map((model: any) => model.id);
   } catch (e) {
     return [];
@@ -58,7 +58,7 @@ export async function _streamCompletion(
 ) {
   const req = http.request(
     {
-      hostname: "127.0.0.1",
+      hostname: "23.88.9.238",
       port: 3030,
       path: "/v1/chat/completions",
       method: "POST",
