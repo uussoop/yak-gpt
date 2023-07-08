@@ -34,7 +34,13 @@ async function fetchFromAPI(endpoint: string, key: string) {
       },
       mode: 'no-cors',
     });
-    return res;
+
+    if (!res.ok) {
+      throw new Error(`Request failed with status: ${res.status}`);
+    }
+
+    const data = await res.text();
+    return data;
   } catch (e) {
     console.error(e);
     throw e;
