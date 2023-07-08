@@ -104,7 +104,7 @@ export const submitMessage = async (message: Message) => {
   }));
 
   // ASSISTANT REQUEST
-  await streamCompletion(
+  await (
     chat.messages,
     settings,
     apiKey,
