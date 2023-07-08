@@ -16,6 +16,8 @@ async function fetchFromAPI(endpoint: string, key: string) {
       headers: {
         Authorization: `Bearer ${key}`,
       },
+      
+      mode: 'cors', 
     });
     return res;
   } catch (e) {
