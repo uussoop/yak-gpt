@@ -10,39 +10,18 @@ export function assertIsError(e: any): asserts e is Error {
   }
 }
 
-// async function fetchFromAPI(endpoint: string, key: string) {
-//   try {
-//     const res = await axios.get(endpoint, {
-//       headers: {
-//         Authorization: `Bearer ${key}`,
-//       },
-//       mode: 'cors', 
-//     });
-//     return res;
-//   } catch (e) {
-//     if (axios.isAxiosError(e)) {
-//       console.error(e.response?.data);
-//     }
-//     throw e;
-//   }
-// }
 async function fetchFromAPI(endpoint: string, key: string) {
   try {
-    const res = await fetch(endpoint, {
+    const res = await axios.get(endpoint, {
       headers: {
         Authorization: `Bearer ${key}`,
       },
-      mode: 'no-cors',
     });
-
-    if (!res.ok) {
-      throw new Error(`Request failed with status: ${res.status}`);
-    }
-
-    const data = await res.text();
-    return data;
+    return res;
   } catch (e) {
-    console.error(e);
+    if (axios.isAxiosError(e)) {
+      console.error(e.response?.data);
+    }
     throw e;
   }
 }
