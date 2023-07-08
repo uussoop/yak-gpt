@@ -10,23 +10,37 @@ export function assertIsError(e: any): asserts e is Error {
   }
 }
 
+// async function fetchFromAPI(endpoint: string, key: string) {
+//   try {
+//     const res = await axios.get(endpoint, {
+//       headers: {
+//         Authorization: `Bearer ${key}`,
+//       },
+//       mode: 'cors', 
+//     });
+//     return res;
+//   } catch (e) {
+//     if (axios.isAxiosError(e)) {
+//       console.error(e.response?.data);
+//     }
+//     throw e;
+//   }
+// }
 async function fetchFromAPI(endpoint: string, key: string) {
   try {
-    const res = await axios.get(endpoint, {
+    const res = await fetch(endpoint, {
       headers: {
         Authorization: `Bearer ${key}`,
       },
-      
-      mode: 'cors', 
+      mode: 'no-cors',
     });
     return res;
   } catch (e) {
-    if (axios.isAxiosError(e)) {
-      console.error(e.response?.data);
-    }
+    console.error(e);
     throw e;
   }
 }
+
 
 export async function testKey(key: string): Promise<boolean> {
   try {
