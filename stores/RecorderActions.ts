@@ -127,7 +127,7 @@ export const destroyRecorder = async () => {
 };
 
 export const submitAudio = async (newMessage: Message, blob: Blob) => {
-  const apiUrl = "http://127.0.0.1:8080/v1/audio/transcriptions";
+  const apiUrl = "http://127.0.0.1:3030/v1/audio/transcriptions";
 
   const { apiKey, settingsForm } = get();
   const {
