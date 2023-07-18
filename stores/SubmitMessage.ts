@@ -105,7 +105,7 @@ export const submitMessage = async (message: Message) => {
 
   // ASSISTANT REQUEST
   await streamCompletion(
-    chat.messages,
+    chat.messages.slice(-3),
     settings,
     apiKey,
     abortController,
