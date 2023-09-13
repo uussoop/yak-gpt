@@ -127,7 +127,7 @@ export const destroyRecorder = async () => {
 };
 
 export const submitAudio = async (newMessage: Message, blob: Blob) => {
-  const apiUrl = "https://gpt.bidbon.ir/v1/audio/transcriptions";
+  const apiUrl = "https://gpt.beastbrain.ir/v1/audio/transcriptions";
 
   const { apiKey, settingsForm } = get();
   const {
